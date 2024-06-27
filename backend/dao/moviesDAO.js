@@ -6,7 +6,7 @@ export default class MoviesDAO {
             return
         }
         try{
-            movies.conn.db(process.env.MOVIEREVIEWS_NS).collection('movies')
+            movies = await conn.db(process.env.MOVIEREVIEWS_NS).collection('movies')
         } catch(err){
             console.error(`Unable to connect to MoviesDAO: ${err}`)
         }
@@ -44,5 +44,5 @@ export default class MoviesDAO {
             }
         }
 
-        
+
 }
