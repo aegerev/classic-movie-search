@@ -26,7 +26,7 @@ async function logout(){
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className='mr-auto'>
-            <Nav.Link>
+            <Nav.Link style={{color:"orange"}}>
               <Link to={"/movies"}>Movies</Link>
             </Nav.Link>
             <Nav.Link>
@@ -42,43 +42,13 @@ async function logout(){
         </Navbar.Collapse>
       </Navbar>
 
-      <header className="App-header">
-        <p>
-         Watch all your favorite friends on Y12!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn English with Me!
-        </a>
-      </header>
+      <Switch>
+        <Route exact path={["/", "/movies"]} component={MoviesList}></Route>
+        <Route path="/movies/:id/" render={(props) => <Movie {...props} user={user}/>}></Route>
+        <Route path="/login" render={(props) => <Login {...props} login={login}/>}></Route>
+        </Switch>
     </div>
   )
-}
-
-//------------------------------------------------------------------------------------------------------------------
-function AppOld() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
 }
 
 export default App;
