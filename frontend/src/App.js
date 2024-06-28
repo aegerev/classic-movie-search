@@ -10,6 +10,15 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
 
 function App(){
+const[user, setUser] = React.useState(null)
+
+async function login(user = null) {
+  setUser(user)
+}
+async function logout(){
+  setUser(null)
+}
+
   return(
     <div className="App">
       <Navbar bg='primary' expand="lg">
@@ -22,7 +31,7 @@ function App(){
             </Nav.Link>
             <Nav.Link>
               {user? (
-                <a>Logout User</a>
+                <a onClick={logout}>Logout User</a>
               ): (
                 <Link to={"/login"}>Login</Link>
               )}
@@ -32,6 +41,7 @@ function App(){
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+
       <header className="App-header">
         <p>
          Watch all your favorite friends on Y12!
