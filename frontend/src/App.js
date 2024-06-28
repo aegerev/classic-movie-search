@@ -12,6 +12,26 @@ import './App.css';
 function App(){
   return(
     <div className="App">
+      <Navbar bg='primary' expand="lg">
+        <Navbar.Brand href ="#home">Classic Movie Finder</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className='mr-auto'>
+            <Nav.Link>
+              <Link to={"/movies"}>Movies</Link>
+            </Nav.Link>
+            <Nav.Link>
+              {user? (
+                <a>Logout User</a>
+              ): (
+                <Link to={"/login"}>Login</Link>
+              )}
+            </Nav.Link>
+            {/* <Nav.Link href = '#home'>Home</Nav.Link>
+            <Nav.Link href = '#link'>Link</Nav.Link> */}
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
       <header className="App-header">
         <p>
          Watch all your favorite friends on Y12!
